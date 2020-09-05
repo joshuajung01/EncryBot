@@ -1,6 +1,6 @@
 # #tests
 # #its meee
-# #seungjeh is stupid
+# #joshua is stupid
 #
 # # This Discord bot is meant for gamers who play League of Legends.
 # # The bot splits 10 players into balanced teams
