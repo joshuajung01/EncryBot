@@ -35,7 +35,7 @@ async def on_message(message):
             await message.delete()
             await message.author.send(message.author.name + " is sending you a secret message: "
                                       + Encrypted_Data[ID] + "\nYour unique ID is: " + str(ID) +
-                                      "\nYour key is: ", key)
+                                      "\nYour key is: "+ str(key))
             await message.channel.send("Message sent")
 
         except Exception as e:
