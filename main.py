@@ -1,4 +1,5 @@
 #Seungjeh is stupid
+#Joshua is stupid
 import os
 import discord
 import math
@@ -11,7 +12,7 @@ import EncryptionFunctions
 # waitlist = {}
 #
 
-# @client.event
+# @client.even
 # async def on_ready():
 #     print(f'{client.user} has connected to Discord!')
 # #
