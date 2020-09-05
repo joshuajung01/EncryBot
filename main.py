@@ -37,7 +37,8 @@ async def on_message(message):
 
         except Exception as e:
             if not message.author.bot:
-                await message.channel.send("Bruh Error!: ", e)
+                await message.channel.send("Bruh Error!: ")
+                await message.channel.send(e)
 
     elif message.content.find("!!Seungjeh is") != -1 and not message.author.bot:
         await message.channel.send("Ass!")
