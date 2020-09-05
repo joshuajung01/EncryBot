@@ -1,5 +1,3 @@
-#Seungjeh is stupid
-#Joshua is stupid
 import os
 import discord
 import math
@@ -7,10 +5,19 @@ import string
 import EncryptionFunctions
 
 
-# token = os.environ["DISCORD_TOKEN"]
-# client = discord.Client()
-# waitlist = {}
-#
+token = os.environ["DISCORD_TOKEN"]
+client = discord.Client()
+
+@client.event
+async def on_ready():
+    print(f'{client.user} has connected to Discord!')
+
+@client.event
+async def on_message(message):
+    global waitlist
+    if message.content.find("!ping") != -1 and not message.author.bot:
+        await message.channel.send("Pong!")
+
 
 # @client.even
 # async def on_ready():
