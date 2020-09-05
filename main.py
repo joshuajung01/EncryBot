@@ -2,7 +2,7 @@ import os
 import discord
 import math
 import string
-import EncryptionFunctions
+from EncryptionFunctions import *
 import time
 
 token = os.environ["DISCORD_TOKEN"]
@@ -28,9 +28,12 @@ async def on_message(message):
             ID = time.time()
             str_message = message.content
             str_message = str_message.replace('!!encrypt ', ' ')
+            str_message = Encryption_Type_1(str_message)
             Encrypted_Data[ID] = str_message
             await message.delete()
-            await message.channel.send(message.author.name + " is sending you a secret message: " + Encrypted_Data[ID])
+            await message.channel.send(message.author.name +
+                                       " is sending you a secret message: " + Encrypted_Data[ID] + "\n "
+                                                                                                   "Your unique ID is: " + str(ID))
 
         except:
             if not message.author.bot:
