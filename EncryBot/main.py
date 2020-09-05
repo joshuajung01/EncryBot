@@ -1,14 +1,5 @@
 # import os
-<<<<<<< HEAD
-<<<<<<< HEAD
 # import discord discord
-# # Howdy - Haoning (REMOVE LATER)
-=======
-# import discord discord discord discord
->>>>>>> 02f44e646fdfafd366eda1d78a4ff9a9e1b2dac6
-=======
-# import discord discord discord discord discord
->>>>>>> 9c44a1c32a49d2849f06d7163a7b648aef873526
 #
 # token = os.environ["DISCORD_TOKEN"]
 # client = discord.Client()
