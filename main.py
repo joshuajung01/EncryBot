@@ -15,21 +15,9 @@ async def on_ready():
 @client.event
 async def on_message(message):
     global waitlist
-    if message.content.find("!ping") != -1 and not message.author.bot:
+    if message.content.find("!!ping") != -1 and not message.author.bot:
         await message.channel.send("Pong!")
-
-
-@client.event
-async def on_message(message):
-    """This method will deal with all messages in the server"""
-    global waitlist
-
-#    if ........
-    #Takes in message after !Encrypt, calls Encryption Function, delete message, send DM ID
-#    if 
-
-
-
+    
     elif message.content.find("!!help") != -1 and not message.author.bot:
         #See commands to control bot
         await message.channel.send("Here are the controls for EncryBot:\n"
@@ -37,10 +25,7 @@ async def on_message(message):
                                    "!!decrypt - Messages the role member the key\n"
                                    "!!help - See controls for EncryBot\n")
 
-
-
-
-
+client.run(token)
 # @client.even
 # async def on_ready():
 #     print(f'{client.user} has connected to Discord!')
