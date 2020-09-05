@@ -5,10 +5,33 @@
 # # The bot splits 10 players into balanced teams
 # # In high school, my friends and I always struggled to make fair teams when playing custom matches.
 # # This bot will hopefully create more unbiased fair teams.
-#
-# import os
-# import discord
-#
+
+import os
+import discord
+import math
+import string
+
+
+def Encryption_Type_Easy(message):
+    messagearr = []
+    returnstr = ""
+    for i in range(len(message)):
+        messagearr.append(message[i])
+        messagearr[i] = chr(ord(messagearr[i]) * 3)
+    returnstr = returnstr.join(messagearr)
+    return returnstr
+
+
+def Decrypt_Easy(EncryptedMessage):
+    messagearr = []
+    returnstr = ""
+    for i in range(len(message)):
+        messagearr.append(message[i])
+        messagearr[i] = chr(int(ord(messagearr[i]) / 3))
+    returnstr = returnstr.join(messagearr)
+    return returnstr
+
+
 # token = os.environ["DISCORD_TOKEN"]
 # client = discord.Client()
 # waitlist = {}
