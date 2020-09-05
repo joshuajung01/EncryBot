@@ -20,12 +20,13 @@ async def on_ready():
 
 @client.event
 async def on_message(message):
+    global Encrypted_Data
+    global Decrypt_Data
     if message.content.find("!!ping") != -1 and not message.author.bot:
         await message.channel.send("Pong!")
 
     elif message.content.find("!!encrypt") != -1 and not message.author.bot:
         try:
-            global Encrypted_Data
             ID = time.time()
             str_message = message.content
             str_message = str_message.replace('!!encrypt ', ' ')
@@ -34,6 +35,23 @@ async def on_message(message):
             await message.delete()
             await message.author.send(message.author.name + " is sending you a secret message: "
                                       + Encrypted_Data[ID] + "\nYour unique ID is: " + str(ID))
+            await message.channel.send("Message sent")
+
+        except Exception as e:
+            if not message.author.bot:
+                await message.channel.send("Bruh Error!: ")
+                await message.channel.send(e)
+
+    if message.content.find("!!decrypt") != -1 and not message.author.bot:
+        try:
+            arr_sent = message.content.split(' ')
+            ID_decrypt = arr_sent[1]
+            sent_key = arr_sent[2]
+            Decrypt_Data[sent_key] = Encrypted_Data.get(float(ID_decrypt))
+            # Make sure to implement decrypt with given key
+            str_decrypt_msg = Decrypt_1(str(Decrypt_Data.get(sent_key)))
+            await message.delete()
+            await message.author.send("Your decrypted msg is:" + str_decrypt_msg)
             await message.channel.send("Message sent")
 
         except Exception as e:
@@ -56,8 +74,8 @@ async def on_message(message):
                 await message.channel.send("Bruh Error!: ")
                 await message.channel.send(e)
 
-    elif message.content.find("!!Seungjeh is") != -1 and not message.author.bot:
-        await message.channel.send("Ass!")
+    elif message.content.find("!!Joshua") != -1 and not message.author.bot:
+        await message.channel.send("Oh he's dumb af")
 
     elif message.content.find("!!help") != -1 and not message.author.bot:
         #See commands to control bot
