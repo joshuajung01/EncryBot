@@ -23,7 +23,6 @@ def Decrypt_1(EncryptedMessage):
     decrypted = decrypted.join(Emessagearr)
     return decrypted
 
-print("test")
 #test
 #
 # token = os.environ["DISCORD_TOKEN"]
