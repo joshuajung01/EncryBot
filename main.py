@@ -4,7 +4,7 @@ import math
 import string
 
 
-def Encryption_Type_Easy(message):
+def Encryption_Type_1(message):
     messagearr = []
     returnstr = ""
     for i in range(len(message)):
@@ -14,14 +14,14 @@ def Encryption_Type_Easy(message):
     return returnstr
 
 
-def Decrypt_Easy(EncryptedMessage):
-    messagearr = []
-    returnstr = ""
-    for i in range(len(message)):
-        messagearr.append(message[i])
-        messagearr[i] = chr(int(ord(messagearr[i]) / 3))
-    returnstr = returnstr.join(messagearr)
-    return returnstr
+def Decrypt_1(EncryptedMessage):
+    Emessagearr = []
+    decrypted = ""
+    for i in range(len(EncryptedMessage)):
+        Emessagearr.append(EncryptedMessage[i])
+        Emessagearr[i] = chr(int(ord(Emessagearr[i]) / 3))
+    decrypted = decrypted.join(Emessagearr)
+    return decrypted
 #
 # token = os.environ["DISCORD_TOKEN"]
 # client = discord.Client()
