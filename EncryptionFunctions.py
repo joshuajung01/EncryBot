@@ -1,7 +1,20 @@
 import os
 import math
 import string
+import math
+import random
 
+
+def encrypt(message):
+    key = random.randint(1, 3)
+    if key == 1:
+        return Encryption_Type_1(message), 1
+
+    elif key == 2:
+        return Encryption_Type_2(message), 2
+
+    elif key == 3:
+        return Encryption_Type_3(message), 3
 
 
 def Encryption_Type_1(message):
@@ -13,6 +26,7 @@ def Encryption_Type_1(message):
     returnstr = returnstr.join(messagearr)
     return returnstr
 
+
 def Encryption_Type_2(message):
     messagearr = []
     returnstr = ""
@@ -21,6 +35,7 @@ def Encryption_Type_2(message):
         messagearr[i] = chr((ord(messagearr[i]) + 3) * 2)
     returnstr = returnstr.join(messagearr)
     return returnstr
+
 
 def Encryption_Type_3(message):
     messagearr = []
@@ -31,6 +46,16 @@ def Encryption_Type_3(message):
     returnstr = returnstr.join(messagearr)
     return returnstr
 
+
+def decrypt(message, key):
+    if key == 1:
+        return Decrypt_1(message)
+    elif key == 2:
+        return Decrypt_2(message)
+    elif key == 3:
+        return Decrypt_3(message)
+
+
 def Decrypt_1(encrypted_message):
     encryp_mess_arr = []
     decrypted = ""
@@ -40,6 +65,7 @@ def Decrypt_1(encrypted_message):
     decrypted = decrypted.join(encryp_mess_arr)
     return decrypted
 
+
 def Decrypt_2(encrypted_message):
     encryp_mess_arr = []
     decrypted = ""
@@ -48,6 +74,7 @@ def Decrypt_2(encrypted_message):
         encryp_mess_arr[i] = chr(int(ord(encryp_mess_arr[i]) / 2 - 3))
     decrypted = decrypted.join(encryp_mess_arr)
     return decrypted
+
 
 def Decrypt_3(encrypted_message):
     encryp_mess_arr = []

@@ -30,11 +30,12 @@ async def on_message(message):
             ID = time.time()
             str_message = message.content
             str_message = str_message.replace('!!encrypt ', ' ')
-            str_message = Encryption_Type_1(str_message)
+            str_message, key = encrypt(str_message)
             Encrypted_Data[ID] = str_message
             await message.delete()
             await message.author.send(message.author.name + " is sending you a secret message: "
-                                      + Encrypted_Data[ID] + "\nYour unique ID is: " + str(ID))
+                                      + Encrypted_Data[ID] + "\nYour unique ID is: " + str(ID) +
+                                      "\nYour key is: ", key)
             await message.channel.send("Message sent")
 
         except Exception as e:
@@ -45,11 +46,11 @@ async def on_message(message):
     if message.content.find("!!decrypt") != -1 and not message.author.bot:
         try:
             arr_sent = message.content.split(' ')
-            ID_decrypt = arr_sent[1]
-            sent_key = arr_sent[2]
+            ID_decrypt = float(arr_sent[1])
+            sent_key = int(arr_sent[2])
             Decrypt_Data[sent_key] = Encrypted_Data.get(float(ID_decrypt))
             # Make sure to implement decrypt with given key
-            str_decrypt_msg = Decrypt_1(str(Decrypt_Data.get(sent_key)))
+            str_decrypt_msg = decrypt(str(Decrypt_Data.get(sent_key)), sent_key)
             await message.delete()
             await message.author.send("Your decrypted msg is:" + str_decrypt_msg)
             await message.channel.send("Message sent")
