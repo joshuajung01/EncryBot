@@ -1,3 +1,4 @@
+#Seungjeh is stupid
 import os
 import discord
 import math
