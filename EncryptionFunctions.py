@@ -48,7 +48,7 @@ def Decrypt_2(encrypted_message):
     decrypted = decrypted.join(encryp_mess_arr)
     return decrypted
 
-    def Decrypt_3(encrypted_message):
+def Decrypt_3(encrypted_message):
     encryp_mess_arr = []
     decrypted = ""
     for i in range(len(encrypted_message)):
