@@ -22,6 +22,9 @@ def Decrypt_1(EncryptedMessage):
         Emessagearr[i] = chr(int(ord(Emessagearr[i]) / 3))
     decrypted = decrypted.join(Emessagearr)
     return decrypted
+
+print("test")
+#test
 #
 # token = os.environ["DISCORD_TOKEN"]
 # client = discord.Client()
