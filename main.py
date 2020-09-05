@@ -14,9 +14,12 @@ async def on_ready():
 
 @client.event
 async def on_message(message):
-    if message.content.find("!ping") != -1 and not message.author.bot:
+    if message.content.find("!!ping") != -1 and not message.author.bot:
         await message.channel.send("Pong!")
-    
+
+    elif message.content.find("!!Seungjeh is") != -1 and not message.author.bot:
+        await message.channel.send("Ass!")
+
     elif message.content.find("!!help") != -1 and not message.author.bot:
         #See commands to control bot
         await message.channel.send("Here are the controls for EncryBot:\n"
