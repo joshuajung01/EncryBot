@@ -14,8 +14,7 @@ async def on_ready():
 
 @client.event
 async def on_message(message):
-    global waitlist
-    if message.content.find("!!ping") != -1 and not message.author.bot:
+    if message.content.find("!ping") != -1 and not message.author.bot:
         await message.channel.send("Pong!")
     
     elif message.content.find("!!help") != -1 and not message.author.bot:
