@@ -12,6 +12,15 @@ def Encryption_Type_1(message):
     returnstr = returnstr.join(messagearr)
     return returnstr
 
+def Encryption_Type_2(message):
+    messagearr = []
+    returnstr = ""
+    for i in range(len(message)):
+        messagearr.append(message[i])
+        messagearr[i] = chr(ord(messagearr[i]) )
+    returnstr = returnstr.join(messagearr)
+    return returnstr
+
 
 def Decrypt_1(encrypted_message):
     encryp_mess_arr = []
