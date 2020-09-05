@@ -3,10 +3,16 @@ import discord
 import math
 import string
 import EncryptionFunctions
-
+import time
 
 token = os.environ["DISCORD_TOKEN"]
 client = discord.Client()
+
+# {Unique ID: String to encrypt}
+Encrypted_Data = {}
+
+# {Key: String to Decrypt}
+Decrypt_Data = {}
 
 @client.event
 async def on_ready():
@@ -16,6 +22,19 @@ async def on_ready():
 async def on_message(message):
     if message.content.find("!!ping") != -1 and not message.author.bot:
         await message.channel.send("Pong!")
+
+    if message.content.find("!!encrypt") != -1 and not message.author.bot:
+        try:
+            ID = time.time()
+            str_message = message.content
+            str_message = str_message.replace('!!encrypt ', ' ')
+            Encrypted_Data[ID] = str_message
+            await message.delete()
+            await message.channel.send(message.author.name + " is sending you a secret message: " + Encrypted_Data[ID])
+
+        except:
+            if not message.author.bot:
+                await message.channel.send("Bruh Error!")
 
     elif message.content.find("!!Seungjeh is") != -1 and not message.author.bot:
         await message.channel.send("Ass!")
