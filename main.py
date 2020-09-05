@@ -25,6 +25,7 @@ async def on_message(message):
 
     if message.content.find("!!encrypt") != -1 and not message.author.bot:
         try:
+            global Encrypted_Data
             ID = time.time()
             str_message = message.content
             str_message = str_message.replace('!!encrypt ', ' ')
