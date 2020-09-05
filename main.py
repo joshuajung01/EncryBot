@@ -2,7 +2,6 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 # import discord discord
-# # Howdy - Haoning (REMOVE LATER)
 =======
 # import discord discord discord discord
 >>>>>>> 02f44e646fdfafd366eda1d78a4ff9a9e1b2dac6
