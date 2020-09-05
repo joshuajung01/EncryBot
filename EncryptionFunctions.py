@@ -3,6 +3,7 @@ import math
 import string
 
 
+
 def Encryption_Type_1(message):
     messagearr = []
     returnstr = ""
