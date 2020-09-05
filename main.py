@@ -23,7 +23,7 @@ async def on_message(message):
     if message.content.find("!!ping") != -1 and not message.author.bot:
         await message.channel.send("Pong!")
 
-    if message.content.find("!!encrypt") != -1 and not message.author.bot:
+    elif message.content.find("!!encrypt") != -1 and not message.author.bot:
         try:
             global Encrypted_Data
             ID = time.time()
@@ -35,6 +35,16 @@ async def on_message(message):
             await message.author.send(message.author.name + " is sending you a secret message: "
                                       + Encrypted_Data[ID] + "\nYour unique ID is: " + str(ID))
             await message.channel.send("Message sent")
+
+        except Exception as e:
+            if not message.author.bot:
+                await message.channel.send("Bruh Error!: ")
+                await message.channel.send(e)
+
+    elif message.content.find("!!jam") != -1 and not message.author.bot:
+        try:
+            await message.channel.send("/tts SCAWWWWWWWWWW asdfasdf asdf  asf asf  a f asf sadf as fas fas fs fas fasf s f asfasdfasf  fasdfaHHAHAHAHAHAHAHAA"
+                                       "ASFDASFSAF a sdf asf  q req rqw rq f gs  b as f q re hf hs fg wqre f aa fdh sfd re  fa sfaaf asf dr qw erq f ad faf assaf")
 
         except Exception as e:
             if not message.author.bot:
