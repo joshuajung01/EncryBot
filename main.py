@@ -9,24 +9,14 @@ import EncryptionFunctions
 # client = discord.Client()
 # waitlist = {}
 #
-# def findTeamValue(team):
-#     """
-#     Finds the sum of the "value" of all team members on teh team
-#     """
-#     value = 0
-#     for member in team:
-#         value += float(team[member])
-#
-#     return value
-#
-#
-@client.event
-async def on_ready():
-    print(f'{client.user} has connected to Discord!')
-#
-#
-@client.event
-async def on_ready():
+
+# @client.event
+# async def on_ready():
+#     print(f'{client.user} has connected to Discord!')
+# #
+# #
+# @client.event
+# async def on_ready():
 
 # async def on_message(message):
 #     """This method will deal with all messages in the server"""
