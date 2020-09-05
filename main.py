@@ -50,7 +50,8 @@ async def on_message(message):
             Decrypt_Data[sent_key] = Encrypted_Data.get(float(ID_decrypt))
             # Make sure to implement decrypt with given key
             str_decrypt_msg = Decrypt_1(str(Decrypt_Data.get(sent_key)))
-            await message.channel.send("Your decrypted msg is: " + str_decrypt_msg)
+            await message.author.send("Your decrypted msg is: " + str_decrypt_msg)
+            await message.channel.send("Message sent")
 
         except Exception as e:
             if not message.author.bot:
