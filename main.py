@@ -43,8 +43,13 @@ async def on_message(message):
 
     elif message.content.find("!!jam") != -1 and not message.author.bot:
         try:
-            await message.channel.send("/tts SCAWWWWWWWWWW asdfasdf asdf  asf asf  a f asf sadf as fas fas fs fas fasf s f asfasdfasf  fasdfaHHAHAHAHAHAHAHAA"
-                                       "ASFDASFSAF a sdf asf  q req rqw rq f gs  b as f q re hf hs fg wqre f aa fdh sfd re  fa sfaaf asf dr qw erq f ad faf assaf", tts=True)
+            await message.channel.send("SCAAAAAAAA asdfasdf asdf  Meow. Meow. Meow. Meow. :a: :a: :a: bois bois bois bois :a: :a: :a: :a: :a: :a: :a: :a:"
+                                       "ASFDASFSAF a sdf asf  q @@@@@@@@ fdh sfd re  fa sfaaf lurl lurl lurl lurl lurl f ad faf assaf My ROFLCopter goes soi soi soi", tts=True)
+            await message.channel.send(
+                "tit twister mister blister deadly twister on daddys fister sister was fister by mister magister on testosteronsister"
+                " Ooogly Gooogly Ooogly Gooogly Ooogly Gooogly ooluuu luuluu ooluu lulu ooluuu"
+                "A rofl Train goes tichdvdxtche tichdvdxtche dododobobobobgjubgjubgjubdododobobobobgjubgjubgjub The lawnmower goes shersheeeeeeerrerererereeeerrr",
+                tts=True)
 
         except Exception as e:
             if not message.author.bot:
