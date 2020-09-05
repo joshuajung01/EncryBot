@@ -44,7 +44,7 @@ async def on_message(message):
     elif message.content.find("!!jam") != -1 and not message.author.bot:
         try:
             await message.channel.send("/tts SCAWWWWWWWWWW asdfasdf asdf  asf asf  a f asf sadf as fas fas fs fas fasf s f asfasdfasf  fasdfaHHAHAHAHAHAHAHAA"
-                                       "ASFDASFSAF a sdf asf  q req rqw rq f gs  b as f q re hf hs fg wqre f aa fdh sfd re  fa sfaaf asf dr qw erq f ad faf assaf")
+                                       "ASFDASFSAF a sdf asf  q req rqw rq f gs  b as f q re hf hs fg wqre f aa fdh sfd re  fa sfaaf asf dr qw erq f ad faf assaf", tts=True)
 
         except Exception as e:
             if not message.author.bot:
