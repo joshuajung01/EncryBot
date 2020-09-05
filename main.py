@@ -19,6 +19,28 @@ async def on_message(message):
         await message.channel.send("Pong!")
 
 
+@client.event
+async def on_message(message):
+    """This method will deal with all messages in the server"""
+    global waitlist
+
+#    if ........
+    #Takes in message after !Encrypt, calls Encryption Function, delete message, send DM ID
+#    if 
+
+
+
+    elif message.content.find("!!help") != -1 and not message.author.bot:
+        #See commands to control bot
+        await message.channel.send("Here are the controls for EncryBot:\n"
+                                   "!!encrypt - Encrypts message and messages role member key to unlock\n" 
+                                   "!!decrypt - Messages the role member the key\n"
+                                   "!!help - See controls for EncryBot\n")
+
+
+
+
+
 # @client.even
 # async def on_ready():
 #     print(f'{client.user} has connected to Discord!')
