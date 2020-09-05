@@ -69,8 +69,6 @@ async def on_message(message):
                 " Ooogly Gooogly Ooogly Gooogly Ooogly Gooogly ooluuu luuluu ooluu lulu ooluuu"
                 "A rofl Train goes tichdvdxtche tichdvdxtche dododobobobobgjubgjubgjubdododobobobobgjubgjubgjub The lawnmower goes shersheeeeeeerrerererereeeerrr",
                 tts=True)
-            await message.delete()
-            await message.delete()
 
         except Exception as e:
             if not message.author.bot:
