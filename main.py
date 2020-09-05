@@ -38,12 +38,14 @@ def Decrypt_1(EncryptedMessage):
 #     return value
 #
 #
-# @client.event
-# async def on_ready():
-#     print(f'{client.user} has connected to Discord!')
+@client.event
+async def on_ready():
+    print(f'{client.user} has connected to Discord!')
 #
 #
-# @client.event
+@client.event
+async def on_ready():
+
 # async def on_message(message):
 #     """This method will deal with all messages in the server"""
 #
