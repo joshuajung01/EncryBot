@@ -2,9 +2,26 @@ import os
 import discord
 import math
 import string
-import EncryptionFunctions
 
 
+def Encryption_Type_1(message):
+    messagearr = []
+    returnstr = ""
+    for i in range(len(message)):
+        messagearr.append(message[i])
+        messagearr[i] = chr(ord(messagearr[i]) * 3)
+    returnstr = returnstr.join(messagearr)
+    return returnstr
+
+
+def Decrypt_1(EncryptedMessage):
+    Emessagearr = []
+    decrypted = ""
+    for i in range(len(EncryptedMessage)):
+        Emessagearr.append(EncryptedMessage[i])
+        Emessagearr[i] = chr(int(ord(Emessagearr[i]) / 3))
+    decrypted = decrypted.join(Emessagearr)
+    return decrypted
 #
 # token = os.environ["DISCORD_TOKEN"]
 # client = discord.Client()
@@ -23,7 +40,7 @@ import EncryptionFunctions
 #
 @client.event
 async def on_ready():
-   print(f'{client.user} has connected to Discord!')
+    print(f'{client.user} has connected to Discord!')
 #
 #
 @client.event
