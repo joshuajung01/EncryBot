@@ -1,5 +1,6 @@
 # import os
 # import discord discord
+# # Howdy - Haoning (REMOVE LATER)
 #
 # token = os.environ["DISCORD_TOKEN"]
 # client = discord.Client()
