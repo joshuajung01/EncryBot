@@ -1,12 +1,3 @@
-# #tests
-# #its meee
-# #joshua is stupid
-#
-# # This Discord bot is meant for gamers who play League of Legends.
-# # The bot splits 10 players into balanced teams
-# # In high school, my friends and I always struggled to make fair teams when playing custom matches.
-# # This bot will hopefully create more unbiased fair teams.
-#
 # import os
 # import discord
 #
