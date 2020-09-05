@@ -32,8 +32,9 @@ async def on_message(message):
             str_message = Encryption_Type_1(str_message)
             Encrypted_Data[ID] = str_message
             await message.delete()
-            await message.channel.send(message.author.name +
-                                       " is sending you a secret message: " + Encrypted_Data[ID] + "\nYour unique ID is: " + str(ID))
+            await client.send_message(message.author, message.author.name + " is sending you a secret message: "
+                                      + Encrypted_Data[ID] + "\nYour unique ID is: " + str(ID))
+            await message.channel.send("message sent")
 
         except Exception as e:
             if not message.author.bot:
