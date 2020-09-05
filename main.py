@@ -1,14 +1,27 @@
-# import os
-<<<<<<< HEAD
-<<<<<<< HEAD
-# import discord discord
-# # Howdy - Haoning (REMOVE LATER)
-=======
-# import discord discord discord discord
->>>>>>> 02f44e646fdfafd366eda1d78a4ff9a9e1b2dac6
-=======
-# import discord discord discord discord discord
->>>>>>> 9c44a1c32a49d2849f06d7163a7b648aef873526
+import os
+import discord
+import math
+import string
+
+
+def Encryption_Type_Easy(message):
+    messagearr = []
+    returnstr = ""
+    for i in range(len(message)):
+        messagearr.append(message[i])
+        messagearr[i] = chr(ord(messagearr[i]) * 3)
+    returnstr = returnstr.join(messagearr)
+    return returnstr
+
+
+def Decrypt_Easy(EncryptedMessage):
+    messagearr = []
+    returnstr = ""
+    for i in range(len(message)):
+        messagearr.append(message[i])
+        messagearr[i] = chr(int(ord(messagearr[i]) / 3))
+    returnstr = returnstr.join(messagearr)
+    return returnstr
 #
 # token = os.environ["DISCORD_TOKEN"]
 # client = discord.Client()
