@@ -12,7 +12,6 @@ def Encryption_Type_1(message):
     returnstr = returnstr.join(messagearr)
     return returnstr
 
-
 def Decrypt_1(encrypted_message):
     encryp_mess_arr = []
     decrypted = ""
