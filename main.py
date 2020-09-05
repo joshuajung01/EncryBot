@@ -1,5 +1,5 @@
 # import os
-# import discord
+# import discord discord
 #
 # token = os.environ["DISCORD_TOKEN"]
 # client = discord.Client()
@@ -160,3 +160,4 @@
 #                                    "!!show queue - Shows who is registered to play in the custom game\n"
 #                                    "!!make teams - Makes the two balanced teams for the custom game\n"
 #                                    "!!help - See the commands to control TeamBalanceBot\n")
+
