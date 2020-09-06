@@ -5,7 +5,7 @@ import string
 from EncryptionFunctions import *
 import time
 from discord.ext import commands
-
+import youtube_dl
 
 token = os.environ["DISCORD_TOKEN"]
 # {Unique ID: String to encrypt}
@@ -33,6 +33,7 @@ async def encrypt(ctx, role: discord.Role, message):
                               + Encrypted_Data[ID] + "\nYour unique ID is: " + str(ID) +
                               "\n Your key is: " + str(key))
 
+
 @bot.command(name="decrypt", help='Send decrypted messages: !!decrypt 1234 1')
 async def decrypt(ctx, id, key):
     global Encrypted_Data
@@ -44,6 +45,7 @@ async def decrypt(ctx, id, key):
     decryptedMsg = decrypter(str(Decrypt_Data.get(key)), key)
     await ctx.message.author.send("Here is your decrypted Message: \n" + decryptedMsg)
 
+
 @bot.command(name="jam", help='Send decrypted messages: !!decrypt 1234 1')
 async def jam(ctx):
     await ctx.message.delete()
@@ -54,8 +56,13 @@ async def jam(ctx):
         if member != ctx.message.author and member.voice != None:
             await member.edit(mute=True)
 
-
-
+@bot.command(name="ambience", help='Play spy music')
+async def ambience(ctx):
+    await bot.join_voice_channel(ctx.message.author.voice.voice_channel)
+    server = ctx.message.server
+    voice_client = bot.voice_client_in(server)
+    player = await voice_client.create_ytdl_player("https://youtu.be/XAYhNHhxN0A")
+    player.start()
 
 
 # @client.event
