@@ -45,7 +45,6 @@ async def decrypt(ctx, id, key):
 
 @bot.command(name="jam", help='Send decrypted messages: !!decrypt 1234 1')
 async def jam(ctx):
-    ctx.message.author
     for member in ctx.guild.members:
         if member != ctx.message.author and member.voice != None:
             await member.edit(mute=True)
