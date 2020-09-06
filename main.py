@@ -80,6 +80,15 @@ async def on_message(ctx, message):
                 await message.channel.send("Bruh Error!: ")
                 await message.channel.send(e)
 
+    elif message.content.find("!!meow") != -1 and not message.author.bot:
+        try:
+            await message.channel.send("Meow. Meow.? Meow. Meow! Meow. Meow.? Meow. Meow! Meow. Meow.? Meow. Meow! Meow?", tts=True)
+
+        except Exception as e:
+            if not message.author.bot:
+                await message.channel.send("Bruh Error!: ")
+                await message.channel.send(e)
+
     elif message.content.find("!!Joshua") != -1 and not message.author.bot:
         await message.channel.send("Oh he's dumb af")
 
