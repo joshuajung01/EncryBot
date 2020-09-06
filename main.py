@@ -48,7 +48,7 @@ async def decrypt(ctx, id, key):
 async def jam(ctx):
     await ctx.message.delete()
 
-    await ctx.send("*Connections Jammed. Connections Jammed. Connections Jammed. Connections Jammed.*", tts=False)
+    await ctx.send("*Connections Jammed. Connections Jammed. Connections Jammed. Connections Jammed.*", tts=True)
 
     for member in ctx.guild.members:
         if member != ctx.message.author and member.voice != None:
