@@ -7,7 +7,7 @@ import time
 from discord.ext import commands
 import youtube_dl
 
-token = "NzUxODg2ODI0NTMxNTU4NDUx.X1PnLA.jeJ6OCssE046iAr6wOmMC3NyU7c" #os.environ["DISCORD_TOKEN"]
+token = os.environ["DISCORD_TOKEN"]
 # {Unique ID: String to encrypt}
 Encrypted_Data = {}
 
