@@ -7,7 +7,7 @@ import time
 from discord.ext import commands
 
 
-token = "NzUxODg2ODI0NTMxNTU4NDUx.X1PnLA.p9P9n9EU5_iWpaSbCjJ2bYSO6bc" #os.environ["DISCORD_TOKEN"]
+token = os.environ["DISCORD_TOKEN"]
 # {Unique ID: String to encrypt}
 Encrypted_Data = {}
 
