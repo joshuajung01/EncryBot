@@ -19,13 +19,13 @@ bot = commands.Bot(command_prefix="!!")
 
 @bot.command(name= "encrypt")
 async def encrypt(ctx, role: discord.Role, message):
-    await ctx.send("Starting Encryption")
+    await ctx.send(role)
 
     ID = time.time()
     messageText, key = encrypter(message)
     Encrypted_Data[ID] = messageText
 
-    # await ctx.message.delete()
+    await ctx.message.delete()
 
     for member in ctx.server.members:
         if role in member.roles:
