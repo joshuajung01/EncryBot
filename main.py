@@ -57,11 +57,22 @@ async def grapple(ctx, message):
     await ctx.message.channel.send(ctx.message.author.name + " is grappling to channel " + message + "!!")
     await ctx.message.channel.send("https://i.pinimg.com/originals/7f/d1/c5/7fd1c5f2e65b37aae2d9d8277c1944d9.gif")
 
+
 @bot.command(name="self-destruct", help='Self-Destruct!')
 async def self_destruct(ctx):
     channel = discord.utils.get(ctx.guild.voice_channels, name="asdgasgasdg", bitrate=64000)
     await ctx.message.author.edit(voice_channel=channel)
     await ctx.message.channel.send(ctx.message.author.name + " has self-destructed !!")
     await ctx.message.channel.send("https://media1.giphy.com/media/oe33xf3B50fsc/giphy.gif")
+
+
+@bot.command(name="assassinate", help='Assassinate your enemies!!')
+async def assassinate(ctx, message):
+    for member in ctx.guild.members:
+        if member.name == message:
+            await member.edit(voice_channel=None)
+    await ctx.message.delete()
+    await ctx.message.channel.send(message + " died mysteriously...")
+    await ctx.message.channel.send('https://media0.giphy.com/media/3owyp8HzuiWAw11OxO/giphy.gif')
 
 bot.run(token, bot=True)
