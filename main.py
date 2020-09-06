@@ -6,7 +6,7 @@ from EncryptionFunctions import *
 import time
 from discord.ext import commands
 
-token = "NzUxODg2ODI0NTMxNTU4NDUx.X1PnLA.ragMZmtVwpPup2ivt9UgZEaNLsI"#os.environ["DISCORD_TOKEN"]
+token = os.environ["DISCORD_TOKEN"]
 
 Encrypted_Data = {}
 Decrypt_Data = {}
