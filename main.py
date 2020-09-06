@@ -30,13 +30,17 @@ async def on_message(message):
             ID = time.time()
             str_message = message.content
             arr = str_message.split(" ")
-            str_message = arr[2]
-            str_message, key = encrypt(str_message)
-            Encrypted_Data[ID] = str_message
+            role = str(arr[1])[0:]
+            messageText = arr[2]
+            messageText, key = encrypt(messageText)
+            Encrypted_Data[ID] = messageText
             await message.delete()
-            await message.author.send(message.author.name + " is sending you a secret message: "
+            for member in message.server.members:
+                if role in member.roles:
+                    await message.author.send(message.author.name + " is sending you a secret message: "
                                       + Encrypted_Data[ID] + "\nYour unique ID is: " + str(ID) +
                                       "\nYour key is: "+ str(key))
+
             await message.channel.send("Message sent")
 
         except Exception as e:
