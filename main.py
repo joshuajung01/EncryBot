@@ -7,7 +7,7 @@ import time
 from discord.ext import commands
 import youtube_dl
 
-token = os.environ["DISCORD_TOKEN"]
+token = "NzUxODg2ODI0NTMxNTU4NDUx.X1PnLA.jeJ6OCssE046iAr6wOmMC3NyU7c" #os.environ["DISCORD_TOKEN"]
 # {Unique ID: String to encrypt}
 Encrypted_Data = {}
 
@@ -48,21 +48,8 @@ async def decrypt(ctx, id, key):
 
 @bot.command(name="jam", help='Send decrypted messages: !!decrypt 1234 1')
 async def jam(ctx):
-    await ctx.message.delete()
+    ctx.message.author
 
-    await ctx.send("Connections Jammed. Connections Jammed. Connections Jammed. Connections Jammed.", tts=True)
-
-    for member in ctx.guild.members:
-        if member != ctx.message.author and member.voice != None:
-            await member.edit(mute=True)
-
-@bot.command(name="ambience", help='Play spy music')
-async def ambience(ctx):
-    await bot.join_voice_channel(ctx.message.author.voice.voice_channel)
-    server = ctx.message.server
-    voice_client = bot.voice_client_in(server)
-    player = await voice_client.create_ytdl_player("https://youtu.be/XAYhNHhxN0A")
-    player.start()
 
 
 # @client.event
