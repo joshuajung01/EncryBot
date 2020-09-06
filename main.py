@@ -5,13 +5,10 @@ import string
 from EncryptionFunctions import *
 import time
 from discord.ext import commands
-import youtube_dl
 
 token = os.environ["DISCORD_TOKEN"]
-# {Unique ID: String to encrypt}
-Encrypted_Data = {}
 
-# {Key: String to Decrypt}
+Encrypted_Data = {}
 Decrypt_Data = {}
 
 bot = commands.Bot(command_prefix="!!")
@@ -58,8 +55,14 @@ async def jam(ctx):
 async def grapple(ctx, message):
     channel = discord.utils.get(ctx.guild.voice_channels, name=message, bitrate=64000)
     await ctx.message.author.edit(voice_channel=channel)
-    await ctx.message.channel.send(ctx.message.author + "is grappling to channel " + message + "!!")
+    await ctx.message.channel.send(ctx.message.author.name + " is grappling to channel " + message + "!!")
     await ctx.message.channel.send("https://i.pinimg.com/originals/7f/d1/c5/7fd1c5f2e65b37aae2d9d8277c1944d9.gif")
 
+@bot.command(name="self-destruct", help='Self-Destruct!')
+async def self_destruct(ctx):
+    channel = discord.utils.get(ctx.guild.voice_channels, name="asdgasgasdg", bitrate=64000)
+    await ctx.message.author.edit(voice_channel=channel)
+    await ctx.message.channel.send(ctx.message.author.name + " has self-destructed !!")
+    await ctx.message.channel.send("https://media1.giphy.com/media/oe33xf3B50fsc/giphy.gif")
 
 bot.run(token, bot=True)
