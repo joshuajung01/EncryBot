@@ -44,6 +44,11 @@ async def decrypt(ctx, id, key):
     decryptedMsg = decrypter(str(Decrypt_Data.get(key)), key)
     await ctx.message.author.send("Here is your decrypted Message: \n" + decryptedMsg)
 
+@bot.command(name="jam", help='Send decrypted messages: !!decrypt 1234 1')
+async def decrypt(ctx, id, key):
+    for member in ctx.guild.members:
+        await member.edit(mute=True)
+    await ctx.send("Connections Jammed. Connections Jammed. Connections Jammed. ", tts=True)
 
 
 
