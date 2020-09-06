@@ -19,11 +19,10 @@ Decrypt_Data = {}
 bot = commands.Bot(command_prefix='!!')
 
 
-@commands.command()
+@bot.command(name="ping")
 async def ping(ctx):
     await ctx.send("Pong!")
 
-bot.add_command(ping)
 
 # @client.event
 # async def on_ready():
