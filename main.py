@@ -8,20 +8,65 @@ from discord.ext import commands
 
 
 token = os.environ["DISCORD_TOKEN"]
-client = discord.Client()
+# {Unique ID: String to encrypt}
+Encrypted_Data = {}
 
-bot = commands.Bot(command_prefix='$')
+# {Key: String to Decrypt}
+Decrypt_Data = {}
+
+bot = commands.Bot(command_prefix= "!!")
 
 
 @bot.command()
-async def foo(ctx, arg):
-    await ctx.send(arg)
+async def encrypt(ctx, role: discord.Role, *, message):
+    try:
+        ID = time.time()
+        messageText, key = encrypter(message)
+        Encrypted_Data[ID] = messageText
 
-# # {Unique ID: String to encrypt}
-# Encrypted_Data = {}
+        await ctx.message.delete()
+
+        for member in ctx.server.members:
+            if role in member.roles:
+                await bot.send(member, ctx.message.author.name + " is sending you a secret message: "+ Encrypted_Data[ID] +
+                                       "\nYour unique ID is: " + str(ID) +
+                                       "\nYour key is: " + str(key))
+        await message.channel.send("Message sent")
+
+    except Exception as e:
+        if not message.author.bot:
+            await message.channel.send("Bruh Error!: ")
+            await message.channel.send(e)
+
+# @bot.command(pass_context=True)
+# async def message_role(ctx, role: discord.Role, *, message):
+#     for member in ctx.message.server.members:
+#         if role in member.roles:
+#             await bot.send_message(member, message)
+
+# elif message.content.find("!!encrypt") != -1 and not message.author.bot:
+#         try:
+#             ID = time.time()
+#             str_message = message.content
+#             arr = str_message.split(" ")
+#             role = str(arr[1])[0:]
+#             messageText = arr[2]
+#             messageText, key = encrypt(messageText)
+#             Encrypted_Data[ID] = messageText
+#             await message.delete()
+#             for member in .server.members:
+#                 if role in member.roles:
+#                     await message.author.send(message.author.name + " is sending you a secret message: "
+#                                       + Encrypted_Data[ID] + "\nYour unique ID is: " + str(ID) +
+#                                       "\nYour key is: "+ str(key))
 #
-# # {Key: String to Decrypt}
-# Decrypt_Data = {}
+#             await message.channel.send("Message sent")
+#
+#         except Exception as e:
+#             if not message.author.bot:
+#                 await message.channel.send("Bruh Error!: ")
+#                 await message.channel.send(e)
+
 #
 # bot = commands.Bot(command_prefix='!!')
 #
