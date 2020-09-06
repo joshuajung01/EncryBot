@@ -78,6 +78,9 @@ async def on_message(message):
     elif message.content.find("!!Joshua") != -1 and not message.author.bot:
         await message.channel.send("Oh he's dumb af")
 
+    elif message.content.find("Joshua") != -1 and not message.author.bot:
+        await message.channel.send("Oh he's dumb af")
+
     elif message.content.find("!!help") != -1 and not message.author.bot:
         #See commands to control bot
         await message.channel.send("Here are the controls for EncryBot:\n"
