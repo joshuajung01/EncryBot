@@ -19,8 +19,8 @@ Decrypt_Data = {}
 bot = commands.Bot(command_prefix='!!')
 
 
-@bot.command()
-async def ping(ctx, message):
+@commands.command()
+async def ping(ctx):
     await ctx.send("Pong!")
 
 bot.add_command(ping)
