@@ -22,6 +22,8 @@ bot = commands.Bot(command_prefix='!!')
 async def ping(ctx, message):
     await ctx.send("Pong!")
 
+bot.add_command(ping)
+
 @client.event
 async def on_ready():
     print(f'{client.user} has connected to Discord!')
