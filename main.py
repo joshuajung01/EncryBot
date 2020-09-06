@@ -18,20 +18,21 @@ bot = commands.Bot(command_prefix= "!!")
 
 
 @bot.command()
-async def encrypt(ctx, role: discord.Role, *, message):
+async def encrypt(ctx, role: discord.Role, message):
     try:
+        await message.channel.send("Message sent")
+
         ID = time.time()
         messageText, key = encrypter(message)
         Encrypted_Data[ID] = messageText
 
-        await ctx.message.delete()
+        # await ctx.message.delete()
 
         for member in ctx.server.members:
             if role in member.roles:
                 await bot.send(member, ctx.message.author.name + " is sending you a secret message: "+ Encrypted_Data[ID] +
                                        "\nYour unique ID is: " + str(ID) +
                                        "\nYour key is: " + str(key))
-        await message.channel.send("Message sent")
 
     except Exception as e:
         if not message.author.bot:
