@@ -61,7 +61,6 @@ async def ambience(ctx):
     voice_client = bot.voice_client_in(server)
     player = await voice_client.create_ytdl_player("https://youtu.be/XAYhNHhxN0A")
     player.start()
->>>>>>> 174d2a6ca7ba2e549c14a6ac5b71a65d8a381c53
 
 
 @bot.command(name="grapple", help='Grapple to other voice channels: !!grapple channel_name')
