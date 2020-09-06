@@ -9,7 +9,9 @@ from discord.ext import commands
 
 token = os.environ["DISCORD_TOKEN"]
 client = discord.Client()
+
 bot = commands.Bot(command_prefix='$')
+
 
 @bot.command()
 async def foo(ctx, arg):
@@ -115,5 +117,4 @@ async def foo(ctx, arg):
 #                                    "!!help - See controls for EncryBot\n")
 #
 
-client.run(token)
-
+bot.run(token, bot=True)
