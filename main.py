@@ -1,5 +1,5 @@
 import os
-# import discord
+import discord
 import math
 import string
 from EncryptionFunctions import *
