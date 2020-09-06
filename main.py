@@ -4,6 +4,8 @@ import math
 import string
 from EncryptionFunctions import *
 import time
+from discord.ext import commands
+
 
 token = os.environ["DISCORD_TOKEN"]
 client = discord.Client()
@@ -14,12 +16,18 @@ Encrypted_Data = {}
 # {Key: String to Decrypt}
 Decrypt_Data = {}
 
+bot = commands.Bot(command_prefix='!!')
+
+@bot.command()
+async def ping(ctx, message):
+    await ctx.send("Pong!")
+
 @client.event
 async def on_ready():
     print(f'{client.user} has connected to Discord!')
 
 @client.event
-async def on_message(ctx, message):
+async def on_message(message):
     global Encrypted_Data
     global Decrypt_Data
     if message.content.find("!!ping") != -1 and not message.author.bot:
@@ -35,7 +43,7 @@ async def on_message(ctx, message):
             messageText, key = encrypt(messageText)
             Encrypted_Data[ID] = messageText
             await message.delete()
-            for member in ctx.message.server.members:
+            for member in .server.members:
                 if role in member.roles:
                     await message.author.send(message.author.name + " is sending you a secret message: "
                                       + Encrypted_Data[ID] + "\nYour unique ID is: " + str(ID) +
