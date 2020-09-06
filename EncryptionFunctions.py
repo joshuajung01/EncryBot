@@ -5,7 +5,7 @@ import math
 import random
 
 
-def encrypt(message):
+def encrypter(message):
     key = random.randint(1, 3)
     if key == 1:
         return Encryption_Type_1(message), 1
@@ -47,7 +47,7 @@ def Encryption_Type_3(message):
     return returnstr
 
 
-def decrypt(message, key):
+def decrypter(message, key):
     if key == 1:
         return Decrypt_1(message)
     elif key == 2:

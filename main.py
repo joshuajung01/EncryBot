@@ -7,7 +7,7 @@ import time
 from discord.ext import commands
 
 
-token = os.environ["DISCORD_TOKEN"]
+token = "NzUxODg2ODI0NTMxNTU4NDUx.X1PnLA.IVU1SZYSui8VurEwFzvNMBCJQGE" #os.environ["DISCORD_TOKEN"]
 # {Unique ID: String to encrypt}
 Encrypted_Data = {}
 
@@ -17,67 +17,35 @@ Decrypt_Data = {}
 bot = commands.Bot(command_prefix="!!")
 
 
-@bot.command(name="encrypt", help='Send encrypted messages: Ex: !!encrypt @role "message goes here" ')
+@bot.command(name="encrypt", help='Send encrypted messages: !!encrypt @role "message goes here" ')
 async def encrypt(ctx, role: discord.Role, message):
     global Encrypted_Data
-
-    await ctx.send(role)
 
     ID = time.time()
     messageText, key = encrypter(message)
     Encrypted_Data[ID] = messageText
 
-    # await ctx.message.delete()
+    await ctx.message.delete()
 
-    for member in ctx.server.members:
-        await ctx.send(message)
-        if role in member.roles:
-            await ctx.send(role)
-            await ctx.author.send(member, ctx.message.author.name + " is sending you a secret message: "+ Encrypted_Data[ID] +
-                                   "\nYour unique ID is: " + str(ID) +
-                                   "\nYour key is: " + str(key))
+    for member in ctx.guild.members:
+        if role in member.roles or member.name == ctx.message.author.name:
+            await member.send(ctx.message.author.name + " is sending you a secret message: "
+                              + Encrypted_Data[ID] + "\nYour unique ID is: " + str(ID) +
+                              "\n Your key is: " + str(key))
 
-    # except Exception as e:
-    #     if not ctx.:
-    #         await message.channel.send("Bruh Error!: ")
-    #         await message.channel.send(e)
+@bot.command(name="decrypt", help='Send decrypted messages: !!decrypt 1234 1')
+async def decrypt(ctx, id, key):
+    global Encrypted_Data
+    global Decrypt_Data
+    id = float(id)
+    key = int(key)
+    Decrypt_Data[key] = Encrypted_Data.get(id)
+    await ctx.message.delete()
+    decryptedMsg = decrypter(str(Decrypt_Data.get(key)), key)
+    await ctx.message.author.send("Here is your decrypted Message: \n" + decryptedMsg)
 
-# @bot.command(pass_context=True)
-# async def message_role(ctx, role: discord.Role, *, message):
-#     for member in ctx.message.server.members:
-#         if role in member.roles:
-#             await bot.send_message(member, message)
 
-# elif message.content.find("!!encrypt") != -1 and not message.author.bot:
-#         try:
-#             ID = time.time()
-#             str_message = message.content
-#             arr = str_message.split(" ")
-#             role = str(arr[1])[0:]
-#             messageText = arr[2]
-#             messageText, key = encrypt(messageText)
-#             Encrypted_Data[ID] = messageText
-#             await message.delete()
-#             for member in .server.members:
-#                 if role in member.roles:
-#                     await message.author.send(message.author.name + " is sending you a secret message: "
-#                                       + Encrypted_Data[ID] + "\nYour unique ID is: " + str(ID) +
-#                                       "\nYour key is: "+ str(key))
-#
-#             await message.channel.send("Message sent")
-#
-#         except Exception as e:
-#             if not message.author.bot:
-#                 await message.channel.send("Bruh Error!: ")
-#                 await message.channel.send(e)
 
-#
-# bot = commands.Bot(command_prefix='!!')
-#
-#
-# @bot.command(name="ping")
-# async def ping(ctx):
-#     await ctx.send("Pong!")
 
 
 # @client.event
