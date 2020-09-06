@@ -1,5 +1,5 @@
 import os
-import discord
+# import discord
 import math
 import string
 from EncryptionFunctions import *
@@ -9,19 +9,24 @@ from discord.ext import commands
 
 token = os.environ["DISCORD_TOKEN"]
 client = discord.Client()
+bot = commands.Bot(command_prefix='$')
 
-# {Unique ID: String to encrypt}
-Encrypted_Data = {}
+@bot.command()
+async def foo(ctx, arg):
+    await ctx.send(arg)
 
-# {Key: String to Decrypt}
-Decrypt_Data = {}
-
-bot = commands.Bot(command_prefix='!!')
-
-
-@bot.command(name="ping")
-async def ping(ctx):
-    await ctx.send("Pong!")
+# # {Unique ID: String to encrypt}
+# Encrypted_Data = {}
+#
+# # {Key: String to Decrypt}
+# Decrypt_Data = {}
+#
+# bot = commands.Bot(command_prefix='!!')
+#
+#
+# @bot.command(name="ping")
+# async def ping(ctx):
+#     await ctx.send("Pong!")
 
 
 # @client.event
