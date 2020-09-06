@@ -17,7 +17,7 @@ Decrypt_Data = {}
 bot = commands.Bot(command_prefix="!!")
 
 
-@bot.command(name= "encrypt")
+@bot.command(name="encrypt", help='Send encrypted messages: Ex: !!encrypt @role "message goes here" ')
 async def encrypt(ctx, role: discord.Role, message):
     await ctx.send(role)
 
@@ -28,7 +28,9 @@ async def encrypt(ctx, role: discord.Role, message):
     await ctx.message.delete()
 
     for member in ctx.server.members:
+        await ctx.send(member)
         if role in member.roles:
+            await ctx.send(role)
             await ctx.author.send(member, ctx.message.author.name + " is sending you a secret message: "+ Encrypted_Data[ID] +
                                    "\nYour unique ID is: " + str(ID) +
                                    "\nYour key is: " + str(key))
