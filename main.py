@@ -56,6 +56,7 @@ async def jam(ctx):
         if member != ctx.message.author and member.voice != None:
             await member.edit(mute=True)
 
+
 @bot.command(name="ambience", help='Play spy music')
 async def ambience(ctx):
     await bot.join_voice_channel(ctx.message.author.voice.voice_channel)
@@ -63,6 +64,14 @@ async def ambience(ctx):
     voice_client = bot.voice_client_in(server)
     player = await voice_client.create_ytdl_player("https://youtu.be/XAYhNHhxN0A")
     player.start()
+
+
+@bot.command(name="grapple", help='Grapple to other voice channels: !!grapple channel_name')
+async def grapple(ctx, message):
+    channel = discord.utils.get(ctx.guild.voice_channels, name=message, bitrate=64000)
+    await ctx.message.author.edit(voice_channel=channel)
+    await ctx.message.channel.send(ctx.message.author + "is grappling to channel " + message + "!!")
+    await ctx.message.channel.send("https://i.pinimg.com/originals/7f/d1/c5/7fd1c5f2e65b37aae2d9d8277c1944d9.gif")
 
 
 # @client.event
