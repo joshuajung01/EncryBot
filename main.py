@@ -14,12 +14,12 @@ Encrypted_Data = {}
 # {Key: String to Decrypt}
 Decrypt_Data = {}
 
-bot = commands.Bot(command_prefix= "!!")
+bot = commands.Bot(command_prefix="!!")
 
 
-@bot.command()
+@bot.command(name= "encrypt")
 async def encrypt(ctx, role: discord.Role, message):
-    await message.channel.send("Message sent")
+    await ctx.send("Starting Encryption")
 
     ID = time.time()
     messageText, key = encrypter(message)
