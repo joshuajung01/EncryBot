@@ -7,7 +7,7 @@ import time
 from discord.ext import commands
 
 
-token = os.environ["DISCORD_TOKEN"]
+token = "NzUxODg2ODI0NTMxNTU4NDUx.X1PnLA.p9P9n9EU5_iWpaSbCjJ2bYSO6bc" #os.environ["DISCORD_TOKEN"]
 # {Unique ID: String to encrypt}
 Encrypted_Data = {}
 
@@ -46,9 +46,14 @@ async def decrypt(ctx, id, key):
 
 @bot.command(name="jam", help='Send decrypted messages: !!decrypt 1234 1')
 async def jam(ctx):
+    await ctx.message.delete()
+
+    await ctx.send("*Connections Jammed. Connections Jammed. Connections Jammed. Connections Jammed.*", tts=False)
+
     for member in ctx.guild.members:
-        await member.edit(mute=True)
-    await ctx.send("Connections Jammed. Connections Jammed. Connections Jammed. ", tts=True)
+        if member != ctx.message.author and member.voice != None:
+            await member.edit(mute=True)
+
 
 
 
