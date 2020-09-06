@@ -25,7 +25,7 @@ async def encrypt(ctx, role: discord.Role, message):
     messageText, key = encrypter(message)
     Encrypted_Data[ID] = messageText
 
-    await ctx.message.delete()
+    # await ctx.message.delete()
 
     for member in ctx.server.members:
         await ctx.send(member)
