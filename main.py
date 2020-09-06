@@ -29,7 +29,8 @@ async def on_message(message):
         try:
             ID = time.time()
             str_message = message.content
-            str_message = str_message.replace('!!encrypt ', ' ')
+            arr = str_message.split(" ")
+            str_message = arr[2]
             str_message, key = encrypt(str_message)
             Encrypted_Data[ID] = str_message
             await message.delete()
@@ -85,5 +86,14 @@ async def on_message(message):
                                    "!!decrypt - Messages the role member the key\n"
                                    "!!help - See controls for EncryBot\n")
 
+from discord.ext import commands
+
+bot = commands.Bot(command_prefix='!')
+
+@bot.command(pass_context=True)
+async def message_role(ctx, role: discord.Role, *, message):
+    for member in ctx.message.server.members:
+        if role in member.roles:
+            await bot.send_message(member, message)
 client.run(token)
 
